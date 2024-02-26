@@ -1,8 +1,8 @@
-#include "plaato_beer_scale.h"
+#include "plaato_keg_scale.h"
 
-Plaato_beer_scale::Plaato_beer_scale() {}
+PlaatoKegScale::PlaatoKegScale() {}
 
-void Plaato_beer_scale::measure_weight()
+void PlaatoKegScale::measure_weight()
 {
     total_weight -= weight_vector.at(array_index);               // Subtract oldest value from total
     weight_vector.at(array_index) = this->get_units(n_samples);  // Replace oldest value newest measurement
@@ -13,20 +13,20 @@ void Plaato_beer_scale::measure_weight()
     beer_weight_kg = float(beer_weight / 10) / 100.0f;           // Convert from grams to kilo grams
 }
 
-void Plaato_beer_scale::fill_weight_vector_by_measure()
+void PlaatoKegScale::fill_weight_vector_by_measure()
 {
     for (int i = 0; i < average_window; i++) {
-        this->Plaato_beer_scale::measure_weight();
+        this->PlaatoKegScale::measure_weight();
     }
 }
 
-void Plaato_beer_scale::tare_with_extra_weight(int extra_weight_g, byte times)
+void PlaatoKegScale::tare_with_extra_weight(int extra_weight_g, byte times)
 {
     double sum = read_average(times) - double(extra_weight_g) * this->get_scale();
     set_offset(sum);
 }
 
-void Plaato_beer_scale::calibrate(int known_weight_g)
+void PlaatoKegScale::calibrate(int known_weight_g)
 {
     if (known_weight_g > 0) {
         float new_slope = this->get_value(10) / float(known_weight_g);
@@ -36,27 +36,27 @@ void Plaato_beer_scale::calibrate(int known_weight_g)
     // Does nothing if value is zero. Inform the user or something?
 }
 
-int Plaato_beer_scale::get_beer_weight()
+int PlaatoKegScale::get_beer_weight()
 {
     return this->beer_weight;
 }
 
-int Plaato_beer_scale::get_beer_weight_last()
+int PlaatoKegScale::get_beer_weight_last()
 {
     return this->beer_weight_last;
 }
 
-float Plaato_beer_scale::get_beer_weight_kg()
+float PlaatoKegScale::get_beer_weight_kg()
 {
     return this->beer_weight_kg;
 }
 
-void Plaato_beer_scale::update_beer_weight_last()
+void PlaatoKegScale::update_beer_weight_last()
 {
     this->beer_weight_last = this->beer_weight;
 }
 
-bool Plaato_beer_scale::measure_load()
+bool PlaatoKegScale::measure_load()
 {
     memset(&measureStore, 0, sizeof(measureStore));
     if (preferences_measure.getBytes("measure", &measureStore, sizeof(measureStore)) == 0) {
@@ -66,7 +66,7 @@ bool Plaato_beer_scale::measure_load()
     return true;
 }
 
-bool Plaato_beer_scale::measure_save()
+bool PlaatoKegScale::measure_save()
 {
     if (preferences_measure.putBytes("measure", &measureStore, sizeof(measureStore)) == 0) {
         log_e("ERROR: Measure store failed to save");
@@ -78,7 +78,7 @@ bool Plaato_beer_scale::measure_save()
     }
 }
 
-bool Plaato_beer_scale::measure_init()
+bool PlaatoKegScale::measure_init()
 {
     if (!preferences_measure.begin("measure", false)) {
         log_e("ERROR: Measure store failed to begin");
@@ -100,7 +100,7 @@ bool Plaato_beer_scale::measure_init()
     }
 }
 
-bool Plaato_beer_scale::measure_reset()
+bool PlaatoKegScale::measure_reset()
 {
     log_i("Resetting measure configuration!");
     this->measureStore = measureDefault;
@@ -112,7 +112,7 @@ bool Plaato_beer_scale::measure_reset()
     }
 }
 
-void Plaato_beer_scale::set_sensitivity(int averageWindow)
+void PlaatoKegScale::set_sensitivity(int averageWindow)
 {
     this->average_window = averageWindow;
     weight_vector.resize(average_window);
@@ -123,7 +123,7 @@ void Plaato_beer_scale::set_sensitivity(int averageWindow)
     array_index = 0;
 }
 
-unsigned int Plaato_beer_scale::get_vector_size()
+unsigned int PlaatoKegScale::get_vector_size()
 {
     return weight_vector.capacity();
 }

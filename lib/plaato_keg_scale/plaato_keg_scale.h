@@ -36,7 +36,7 @@ const MeasureStore measureDefault = {
     0
 };
 
-class Plaato_beer_scale : public HX711 {
+class PlaatoKegScale : public HX711 {
     private:
     int average_window;
 
@@ -57,7 +57,7 @@ class Plaato_beer_scale : public HX711 {
     MeasureStore measureStore;
 
     // Constructors
-    Plaato_beer_scale();
+    PlaatoKegScale();
 
     // Gets
     int get_beer_weight();
