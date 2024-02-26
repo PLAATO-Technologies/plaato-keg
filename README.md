@@ -1,6 +1,9 @@
 # Open PLAATO Keg
 
-## Original Platform.io configuration
+This repository contains documentation and code for the PLAATO Keg for use in open-source projects.  
+Please open an issue if there is code or documentation missing.
+
+## Platform.io configuration
 
 This is an excerpt from the original `platformio.ini` file
 
@@ -10,9 +13,11 @@ framework = arduino
 board = esp32dev
 
 lib_deps =
-    ; HX711 id: 1100 - might need to update to 'bogde/HX711@0.7.1' or 0.7.5
+    ; HX711 id: 1100
     1100@0.7.1
 ```
+
+The dependency for HX711 _might_ need to be updated to `bogde/HX711@0.7.1` and potentially `0.7.5`.
 
 ## Hardware
 
