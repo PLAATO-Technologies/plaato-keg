@@ -1,4 +1,4 @@
-# Open PLAATO Keg
+# PLAATO Keg OS
 
 This repository contains documentation and code for the PLAATO Keg for use in open-source projects.  
 Please open an issue if there is code or documentation missing.
