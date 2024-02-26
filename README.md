@@ -5,7 +5,7 @@ Please open an issue if there is code or documentation missing.
 
 ## Platform.io configuration
 
-This is an excerpt from the original `platformio.ini` file
+This is an excerpt from the original `platformio.ini` file:
 
 ```
 platform = espressif32@1.11.1
