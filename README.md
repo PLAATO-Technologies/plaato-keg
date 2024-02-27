@@ -17,7 +17,7 @@ lib_deps =
     1100@0.7.1
 ```
 
-The dependency for HX711 _might_ need to be updated to `bogde/HX711@0.7.1` and potentially `0.7.5`.
+The HX711 dependency _might_ need to be changed to `bogde/HX711@0.7.1` and potentially `0.7.5`.
 
 ## Hardware
 
@@ -28,3 +28,7 @@ The dependency for HX711 _might_ need to be updated to `bogde/HX711@0.7.1` and p
 ### PCB Flashing Test Pads
 
 ![](docs/img/PLAATO%20Keg%20PCB%20Flashing%20Test%20Pads.png "The test pads used for flashing the PCB")
+
+### HX711 Breakout Hookup Guide
+
+For more information about using HX711 you can check out [this guide](https://learn.sparkfun.com/tutorials/load-cell-amplifier-hx711-breakout-hookup-guide/all).
