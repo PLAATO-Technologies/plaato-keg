@@ -17,7 +17,7 @@ lib_deps =
     1100@0.7.1
 ```
 
-The HX711 dependency _might_ need to be changed to `bogde/HX711@0.7.1` and potentially `0.7.5`.
+The HX711 dependency _might_ need to be changed to `bogde/HX711@0.7.1` and potentially `0.7.5`. See [bogde/HX711](https://github.com/bogde/HX711).
 
 ## Hardware
 
