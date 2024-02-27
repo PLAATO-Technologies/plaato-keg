@@ -1,8 +1,8 @@
 #pragma once
 
-#include "HX711.h"  // Strongly dependent on this library
-#include <Preferences.h>
 #include <vector>
+#include <Preferences.h>
+#include "HX711.h"  // Strongly dependent on this library
 
 #define MEASURE_STORE_VERSION "1.0.0"
 
